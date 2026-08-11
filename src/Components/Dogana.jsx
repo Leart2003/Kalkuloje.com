@@ -17,7 +17,7 @@ const Dogana = () =>
   
     const[viti, setViti] = useState(Years[0]);
     const[vetureERe, setVetureERe] = useState(false);
-    const [vlera, setVlera] = useState(10000);
+    const [vlera, setVlera] = useState(0);
     const [kubikIndex, setKubikIndex] = useState(0);
 
     const rezultatet = useMemo(() => {
@@ -61,12 +61,13 @@ const Dogana = () =>
 
       <div className="kd-row"><label className="kd-label">Vlera e vetures</label>
       <div className="kd-input-euro">
-        <input type="number" className="kd-input"
-        type="number"
-              className="kd-input"
-              value={vlera}
-              min={0}
-              onChange={(e) => setVlera(e.target.value)}></input>
+   <input
+  type="number"
+  className="kd-input"
+  value={vlera}
+  min={0}
+  onChange={(e) => setVlera(e.target.value)}
+/>
         <span className="kd-euro">€</span>
       </div>
       </div>
