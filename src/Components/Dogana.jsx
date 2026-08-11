@@ -38,5 +38,62 @@ const Dogana = () =>
     },[vlera, kubikIndex, vetureERe]);
 
     const formatEuro = (n) => n.toLocaleString("de-DE");
-    return(<div className="kd-wrapper"></div>)
+    return(<div className="kd-wrapper">
+      <div className="kd-card"><h1>Kalkulo doganen per veturen tuaj</h1>
+      <div className="kd-row">
+        <label className="kd-label">Viti prodhimit</label>
+        <select className="kd-input"><option></option></select>
+      </div>
+      <div className="kd-row kd-row-checkbox">
+        <span className="kd-label"></span>
+        <label>Veture e re<input></input></label>
+      </div>
+      <div className="kd-row"><label className="kd-label">Vlera e vetures</label>
+      <div className="kd-input-euro">
+        <input type="number" className="kd-input"></input>
+        <span className="kd-euro">€</span>
+      </div>
+      </div>
+      <div className="kd-row">
+        <label className="kd-label">Kubik(cmm)</label>
+        <select className="kd-input">
+          <option></option>
+        </select>
+      </div>
+      <div className="kd-divider">----------</div>
+      <div className="kd-row">
+        <label className="kd-label">Akciza:</label>
+        <div className="kd-input-euro"></div>
+        <span className="kd-euro">€</span>
+      </div>
+       </div>
+       <div className="kd-row">
+        <label className="ld-label">Tatimi ne import</label>
+        <div className="kd-input-euro">
+          <div className="kd-result"></div>
+          <span className="kd-euro">€</span>
+        </div>
+       </div>
+       <div className="kd-row">
+        <label className="kd-label">TVSH-ja</label>
+        <div className="kd-input-euro">
+          <div className="kd-result"></div>
+          <span>€</span>
+        </div>
+       </div>
+         <div className="kd-row">
+        <label className="kd-label">Dogana</label>
+        <div className="kd-input-euro">
+          <div className="kd-result kd-result-orange"></div>
+          <span className="kd-euro kd-euro-orange">€</span>
+        </div>
+       </div>
+         <div className="kd-row">
+        <label className="kd-label kd-label-orange">Totali</label>
+        <div className="kd-input-euro">
+          <div className="kd-result kd-result-orange"></div>
+          <span className="kd-euro kd-euro-orange">€</span>
+        </div>
+       </div>
+      </div>)
   }
