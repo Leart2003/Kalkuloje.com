@@ -1,79 +1,131 @@
 .kd-wrapper {
   display: flex;
   justify-content: center;
-  padding: 40px 16px;
-  background: #ffffff;
-  font-family: "Segoe UI", Arial, sans-serif;
+  padding: 56px 16px;
+  background: #f2ede0;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(28,36,56,0.06) 1px, transparent 0);
+  background-size: 18px 18px;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  min-height: 100vh;
 }
 
 .kd-card {
   width: 100%;
   max-width: 620px;
+  background: #fbf8f0;
+  border: 1px solid #dcd5c4;
+  border-radius: 2px;
+  padding: 40px 36px 32px;
+  box-shadow: 0 1px 0 #fff inset, 0 18px 40px -24px rgba(28,36,56,0.35);
+  position: relative;
 }
+
+/* corner ticks, like a form printed for cutting/filing */
+.kd-card::before,
+.kd-card::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #b08c3e;
+  opacity: 0.6;
+}
+.kd-card::before { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+.kd-card::after { bottom: 10px; right: 10px; border-left: none; border-top: none; }
 
 .kd-title {
   text-align: center;
-  font-size: 20px;
-  color: #1f2a44;
-  margin-bottom: 28px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #1c2438;
+  margin-bottom: 6px;
+}
+
+/* small eyebrow line under the title, like a form reference number */
+.kd-card > .kd-title::after {
+  content: "DEKLARATA DOGANORE · KALKULIM";
+  display: block;
+  font-family: ui-monospace, "Courier New", monospace;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  color: #a53f35;
+  margin-top: 8px;
 }
 
 .kd-row {
   display: grid;
-  grid-template-columns: 1fr 220px;
-  align-items: center;
+  grid-template-columns: 1fr 200px;
+  align-items: end;
   gap: 16px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .kd-row-checkbox {
-  margin-bottom: 10px;
+  margin-bottom: 14px;
+  align-items: center;
 }
 
 .kd-label {
-  text-align: right;
-  font-weight: 700;
-  color: #1f2a44;
-  font-size: 15px;
-  line-height: 1.3;
+  text-align: left;
+  font-weight: 600;
+  color: #1c2438;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  padding-bottom: 9px;
+  border-bottom: 1px dotted #b7ae95;
 }
 
 .kd-label-orange {
-  color: #e07b39;
+  color: #a53f35;
 }
 
 .kd-checkbox-label {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-weight: 700;
-  color: #1f2a44;
-  font-size: 15px;
+  font-weight: 600;
+  color: #1c2438;
+  font-size: 13px;
+  cursor: pointer;
 }
 
 .kd-checkbox-label input {
-  width: 16px;
-  height: 16px;
-  accent-color: #1f2a44;
+  width: 15px;
+  height: 15px;
+  accent-color: #a53f35;
 }
 
 .kd-input {
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 12px;
-  border: 1px solid #c7cdd6;
-  border-radius: 6px;
+  padding: 8px 10px;
+  border: none;
+  border-bottom: 1px solid #1c2438;
+  border-radius: 0;
+  background: transparent;
+  font-family: ui-monospace, "Courier New", monospace;
   font-size: 15px;
-  color: #1f2a44;
-  background: #ffffff;
+  color: #1c2438;
   appearance: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.kd-input:focus {
+  outline: none;
+  border-bottom: 1px solid #a53f35;
+  background: rgba(165,63,53,0.04);
 }
 
 select.kd-input {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' stroke='%231f2a44' stroke-width='1.5' fill='none' fill-rule='evenodd'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' stroke='%231c2438' stroke-width='1.5' fill='none' fill-rule='evenodd'/></svg>");
   background-repeat: no-repeat;
-  background-position: right 12px center;
-  padding-right: 32px;
+  background-position: right 4px center;
+  padding-right: 24px;
   cursor: pointer;
 }
 
@@ -82,43 +134,53 @@ select.kd-input {
 }
 
 .kd-input-euro .kd-input {
-  padding-right: 40px;
+  padding-right: 28px;
 }
 
 .kd-euro {
   position: absolute;
-  right: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #1f2a44;
-  font-size: 15px;
+  right: 2px;
+  bottom: 9px;
+  font-family: ui-monospace, "Courier New", monospace;
+  color: #6b6252;
+  font-size: 13px;
 }
 
 .kd-euro-orange {
-  color: #e07b39;
+  color: #a53f35;
 }
 
 .kd-result {
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 40px 10px 12px;
-  border: 1px solid #c7cdd6;
-  border-radius: 6px;
-  background: #eef0f3;
-  color: #1f2a44;
+  padding: 8px 28px 8px 10px;
+  border: none;
+  border-bottom: 1px solid #b7ae95;
+  border-radius: 0;
+  background: transparent;
+  font-family: ui-monospace, "Courier New", monospace;
   font-size: 15px;
+  color: #1c2438;
+  text-align: right;
 }
 
+/* the final total reads like an ink stamp, not a generic highlighted box */
 .kd-result-orange {
-  background: #ffffff;
-  border: 1px solid #e07b39;
-  color: #e07b39;
-  font-weight: 600;
+  color: #a53f35;
+  font-weight: 700;
+  font-size: 18px;
+  border-bottom: 1px solid #a53f35;
+  position: relative;
 }
 
 .kd-divider {
   text-align: center;
-  letter-spacing: 4px;
-  color: #1f2a44;
-  margin: 20px 0;
+  letter-spacing: 6px;
+  color: #b7ae95;
+  margin: 26px 0;
+  font-size: 11px;
+}
+
+.kd-divider::before {
+  content: "· · · · · · · · · · · · · · · · · · · ·";
 }
