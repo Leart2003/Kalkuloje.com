@@ -19,6 +19,7 @@ const Dogana = () =>
     const[vetureERe, setVetureERe] = useState(false);
     const [vlera, setVlera] = useState(0);
     const [kubikIndex, setKubikIndex] = useState(0);
+    const [ngaKoreja, setNgaKoreja] = useState(false);
 
     const rezultatet = useMemo(() => {
         const vleraNum = Number(vlera) || 0;
@@ -26,7 +27,10 @@ const Dogana = () =>
         const akciza = vetureERe ? bracket.akciza * 1.2 : bracket.akciza;
         const tatimiNeImport = vleraNum * Tatimi;
          const tvsh = (vleraNum + akciza + tatimiNeImport) * Tvsh;
-      const dogana = akciza + tatimiNeImport + tvsh;
+      let dogana = akciza + tatimiNeImport + tvsh;
+      if(ngaKoreja){
+        dogana = dogana * 0.75;
+      }
          const totali = vleraNum + dogana;
 
          return{akciza: Math.round(akciza),
@@ -58,6 +62,17 @@ const Dogana = () =>
         checked={vetureERe}
         onChange={(e)=>setVetureERe(e.target.checked)}></input>Vetur e re</label>
       </div>
+      <div className="kd-row kd-row-checkbox">
+  <span className="kd-label"></span>
+  <label className="kd-checkbox-label">
+    <input
+      type="checkbox"
+      checked={ngaKoreja}
+      onChange={(e) => setNgaKoreja(e.target.checked)}
+    />
+    Importuar nga Koreja (-25% dogana)
+  </label>
+</div>
 
       <div className="kd-row"><label className="kd-label">Vlera e vetures</label>
       <div className="kd-input-euro">
